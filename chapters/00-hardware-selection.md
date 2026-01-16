@@ -1,3 +1,5 @@
+# 🏠 Chapter 0: Hardware Selection
+
 This chapter documents the first stage of my home lab project:  
 **choosing, validating, and purchasing the hardware**.
 
@@ -16,7 +18,7 @@ This README focuses **only on the hardware decision process** and explains:
 
 ---
 
-## Project Goals
+## 🎯 Project Goals
 
 Before choosing hardware, the requirements were defined clearly:
 
@@ -35,7 +37,7 @@ Before choosing hardware, the requirements were defined clearly:
 
 ---
 
-## Hardware Options Considered
+## 🤔 Hardware Options Considered
 
 ### 1. Cloud (AWS EC2)
 
@@ -130,7 +132,7 @@ Selected as the best balance between cost, performance, learning value, and futu
 
 ---
 
-## Final Hardware Configuration (Selected)
+## 💻 Final Hardware Configuration (Selected)
 
 ### CPU
 - **Intel Core i5-12600 (12th Gen)**
@@ -173,7 +175,7 @@ Selected as the best balance between cost, performance, learning value, and futu
 
 ---
 
-## Validation & Testing
+## ✅ Validation & Testing
 
 Before wiping Windows and installing Proxmox, the system was validated using:
 
@@ -189,12 +191,12 @@ All tests passed successfully.
 
 ---
 
-## The Purchase Journey
+## 🛒 The Purchase Journey
 
 Finding the right used hardware took time and patience. I browsed local listings, compared prices, and validated several options.
 After several searches, I found a seller with exactly what I needed:
 
-![Specs Discussion](../assets/screenshots/chapter-00-hardware-selection/specs-discussion.png)
+<img src="../assets/screenshots/chapter-00-hardware-selection/specs-discussion.png" alt="Specs Discussion" width="600">
 
 **Specs:**
 - Ryzen 5 3600 – 6 cores / 12 threads  
@@ -205,17 +207,17 @@ After several searches, I found a seller with exactly what I needed:
 - Antec case  
 - **Price: 2,200 ILS**
 
-![Final Purchase Agreement](../assets/screenshots/chapter-00-hardware-selection/final-purchase.png)
+<img src="../assets/screenshots/chapter-00-hardware-selection/final-purchase.png" alt="Final Purchase Agreement" width="600">
 
 ### The Hardware Arrives
 
 Here's what I got:
 
-![Actual Hardware Photo](../assets/screenshots/chapter-00-hardware-selection/actual-hardware-photo.png)
+<img src="../assets/screenshots/chapter-00-hardware-selection/actual-hardware-photo.png" alt="Actual Hardware Photo" width="700">
 
 ---
 
-## Pre-Installation Validation
+## 🔬 Pre-Installation Validation
 
 Before buying, I asked the seller to run some tests to ensure everything worked correctly.
 
@@ -225,7 +227,7 @@ Before buying, I asked the seller to run some tests to ensure everything worked 
 wmic cpu get name
 ```
 
-![CPU Validation Check](../assets/screenshots/chapter-00-hardware-selection/validation-cpu-check.png)
+<img src="../assets/screenshots/chapter-00-hardware-selection/validation-cpu-check.png" alt="CPU Validation Check" width="500">
 
 ✅ Confirmed: Ryzen 5 3600 detected correctly.
 
@@ -235,7 +237,7 @@ wmic cpu get name
 wmic memorychip get capacity
 ```
 
-![RAM Validation Check](../assets/screenshots/chapter-00-hardware-selection/validation-ram-check.png)
+<img src="../assets/screenshots/chapter-00-hardware-selection/validation-ram-check.png" alt="RAM Validation Check" width="500">
 
 ✅ Confirmed: 16GB RAM installed and recognized.
 
@@ -245,7 +247,7 @@ wmic memorychip get capacity
 systeminfo | findstr /C:"Processor" /C:"Total Physical Memory"
 ```
 
-![System Info Validation](../assets/screenshots/chapter-00-hardware-selection/validation-system-info.png)
+<img src="../assets/screenshots/chapter-00-hardware-selection/validation-system-info.png" alt="System Info Validation" width="500">
 
 ✅ All specs matched the listing perfectly.
 
@@ -253,7 +255,7 @@ systeminfo | findstr /C:"Processor" /C:"Total Physical Memory"
 
 stress tests to ensure stability under load:
 
-![Stress Test Results](../assets/screenshots/chapter-00-hardware-selection/validation-stress-test.png)
+<img src="../assets/screenshots/chapter-00-hardware-selection/validation-stress-test.png" alt="Stress Test Results" width="600">
 
 **Results:**
 - ✅ CPU stable under full load
@@ -265,7 +267,7 @@ All tests passed successfully!
 
 ---
 
-## Cost Summary
+## 💰 Cost Summary
 
 | Component Category | Notes |
 |-------------------|-------|
@@ -278,7 +280,7 @@ Compared to cloud hosting (~$60–100/month), this hardware pays for itself in *
 
 ---
 
-## Why This Hardware Was Chosen
+## 🎓 Why This Hardware Was Chosen
 
 This system provides:
 - Strong learning value
@@ -293,7 +295,7 @@ It is powerful enough **now**, and flexible enough **later**.
 
 ---
 
-## Next Steps
+## 🚀 Next Steps
 
 The next chapter will cover:
 - Proxmox VE installation
