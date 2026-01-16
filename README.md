@@ -15,7 +15,7 @@ The homelab is designed to support:
 - Reliable 24/7 operation
 - Containerized workloads
 - Workflow automation
-- Agentic systems
+- Agent-based systems
 - Local AI experimentation
 - Smart home and real-world integrations
 - Strong security and observability
