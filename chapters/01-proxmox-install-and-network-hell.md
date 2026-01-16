@@ -226,13 +226,15 @@ This installation taught me several valuable lessons:
 
 ## 🚀 Next Steps
 
-With Proxmox installed and network configured, the next chapters will cover:
+With Proxmox installed and network configured, the next chapter will cover:
 
-- [ ] Deploy Docker via LXC containers
-- [ ] Set up n8n with PostgreSQL backend
+- [x] Deploy Docker via LXC containers
+- [x] Set up n8n with PostgreSQL backend
 - [ ] Configure NVIDIA GPU Passthrough for AI workloads
 - [ ] Build the RAG Knowledge Base pipeline
 - [ ] Implement security hardening and MFA
+
+**Continue to:** [Chapter 2: Docker and n8n Setup](02-docker-and-n8n-setup.md)
 
 ---
 
