@@ -1,6 +1,6 @@
-# 🏠 Chapter 1: Proxmox Install and Network Hell
+# 🏠 Chapter 1: Proxmox Install and Network problems
 
-This chapter documents the installation of Proxmox VE on my home lab server — a journey that taught me more about networking troubleshooting than I ever wanted to know. What should have been a simple install turned into a deep dive through BIOS settings, network interfaces, IP subnets, and DNS resolution.
+This chapter documents the installation of Proxmox VE on my home lab server — a journey that taught me more about networking troubleshooting. What should have been a simple install turned into a deep dive through BIOS settings, network interfaces, IP subnets, and DNS resolution.
 
 ## 🎯 Why Proxmox VE?
 
