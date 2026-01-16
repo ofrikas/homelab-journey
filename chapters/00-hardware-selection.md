@@ -1,6 +1,4 @@
-# Home Server – Hardware Journey (Part 1)
-
-This repository documents the first stage of my home server project:  
+This chapter documents the first stage of my home lab project:  
 **choosing, validating, and purchasing the hardware**.
 
 The goal of this project is to build a reliable home server that can grow over time and support:
@@ -119,7 +117,7 @@ Acceptable as a temporary solution, but not ideal for a long-term project.
 **Pros**
 - Modern CPU architecture
 - Dedicated NVIDIA GPU (CUDA support)
-- Excellent Docker & AI compatibility
+- Excellent Proxmox & Docker compatibility
 - Upgradeable RAM and storage
 - One-time cost
 
@@ -177,7 +175,7 @@ Selected as the best balance between cost, performance, learning value, and futu
 
 ## Validation & Testing
 
-Before wiping Windows and installing Linux, the system was validated using:
+Before wiping Windows and installing Proxmox, the system was validated using:
 
 - BIOS / UEFI inspection
 - CPU identification
@@ -191,16 +189,92 @@ All tests passed successfully.
 
 ---
 
+## The Purchase Journey
+
+Finding the right used hardware took time and patience. I browsed local listings, compared prices, and validated several options.
+After several searches, I found a seller with exactly what I needed:
+
+![Specs Discussion](../assets/screenshots/chapter-00-hardware-selection/specs-discussion.png)
+
+**Specs:**
+- Ryzen 5 3600 – 6 cores / 12 threads  
+- RTX 2060 Super 8GB  
+- 16GB RAM DDR4 3600  
+- NVMe 256GB  
+- B450 motherboard  
+- Antec case  
+- **Price: 2,200 ILS**
+
+![Final Purchase Agreement](../assets/screenshots/chapter-00-hardware-selection/final-purchase.png)
+
+### The Hardware Arrives
+
+Here's what I got:
+
+![Actual Hardware Photo](../assets/screenshots/chapter-00-hardware-selection/actual-hardware-photo.png)
+
+---
+
+## Pre-Installation Validation
+
+Before buying, I asked the seller to run some tests to ensure everything worked correctly.
+
+### CPU Verification
+
+```cmd
+wmic cpu get name
+```
+
+![CPU Validation Check](../assets/screenshots/chapter-00-hardware-selection/validation-cpu-check.png)
+
+✅ Confirmed: Ryzen 5 3600 detected correctly.
+
+### RAM Verification
+
+```cmd
+wmic memorychip get capacity
+```
+
+![RAM Validation Check](../assets/screenshots/chapter-00-hardware-selection/validation-ram-check.png)
+
+✅ Confirmed: 16GB RAM installed and recognized.
+
+### System Info
+
+```cmd
+systeminfo | findstr /C:"Processor" /C:"Total Physical Memory"
+```
+
+![System Info Validation](../assets/screenshots/chapter-00-hardware-selection/validation-system-info.png)
+
+✅ All specs matched the listing perfectly.
+
+### Stress Testing
+
+stress tests to ensure stability under load:
+
+![Stress Test Results](../assets/screenshots/chapter-00-hardware-selection/validation-stress-test.png)
+
+**Results:**
+- ✅ CPU stable under full load
+- ✅ GPU performing correctly  
+- ✅ Temperatures within safe range
+- ✅ No crashes or artifacts
+
+All tests passed successfully!
+
+---
+
 ## Cost Summary
 
 | Component Category | Notes |
 |-------------------|-------|
-| Full System | Purchased used |
-| Total Cost | **~2200 ILS** |
-| Monthly Cost | **0** |
-| Upgrade Path | RAM, storage, newer GPU |
+| Full System | Purchased used from local seller |
+| Total Cost | **2,200 ILS (~$600 USD)** |
+| Monthly Cost | **$0** (one-time purchase) |
+| Upgrade Path | RAM → 32GB, storage expansion, newer GPU possible |
 
-Compared to cloud hosting, this equals ~3–4 months of EC2 usage and then becomes effectively free.
+Compared to cloud hosting (~$60–100/month), this hardware pays for itself in **3–4 months** and then runs essentially cost-free (except electricity).
 
 ---
 
@@ -209,7 +283,7 @@ Compared to cloud hosting, this equals ~3–4 months of EC2 usage and then becom
 This system provides:
 - Strong learning value
 - Real-world hardware experience
-- Modern Linux compatibility
+- Modern Proxmox compatibility
 - Docker-first design
 - AI-ready foundation
 - No vendor lock-in
@@ -219,18 +293,18 @@ It is powerful enough **now**, and flexible enough **later**.
 
 ---
 
-## Next Steps (Part 2)
+## Next Steps
 
-The next phase of this project will cover:
-- Full Linux installation
-- Disk layout decisions
-- Docker setup
-- n8n deployment
-- PostgreSQL configuration
-- Grafana monitoring
+The next chapter will cover:
+- Proxmox VE installation
+- BIOS configuration for virtualization
+- Network configuration and troubleshooting
+- Post-install optimization
+- Setting up LXC containers
 
-This README represents **Part 1: The Hardware Story**.
+**Continue to:** [Chapter 1: Proxmox Install and Network Hell](01-proxmox-install-and-network-hell.md)
 
 ---
 
-*End of Part 1*
+**Total Time:** ~2 weeks of research  
+**Difficulty:** ⭐⭐☆☆☆

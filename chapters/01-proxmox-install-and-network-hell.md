@@ -27,7 +27,7 @@ To begin, I needed to transform a standard USB drive into a bootable Proxmox ins
 
 **First Challenge:** Rufus didn't initially detect my USB device. I was using a USB hard drive instead of a USB stick, and Rufus filters these out by default. The solution was to enable "List USB Hard Drives" in the advanced drive properties.
 
-![Rufus Boot Media Creation](../assets/screenshots/boot-media-rufus-settings.png)
+![Rufus Boot Media Creation](../assets/screenshots/chapter-01-proxmox-installation/boot-media-rufus-settings.png)
 
 ---
 
@@ -43,7 +43,7 @@ Before installing Proxmox, I connected a monitor and keyboard to the server and 
 
 **Secure Boot:** This security mechanism verifies the cryptographic signature of the bootloader before executing it (to prevent boot-level rootkits). The problem is that the keys burned into consumer motherboards are Microsoft's. Proxmox's bootloader (based on open source) isn't always signed by Microsoft's key, so the board "blocks" it thinking it's malicious software. Disabling Secure Boot allows us to run code not signed by Microsoft.
 
-![BIOS Virtualization Settings](../assets/screenshots/bios-virtualization-settings.png)
+![BIOS Virtualization Settings](../assets/screenshots/chapter-01-proxmox-installation/bios-virtualization-settings.png)
 
 ---
 
@@ -53,7 +53,7 @@ With the BIOS configured, I was ready to install Proxmox. I booted from the Hard
 
 Finally, the Proxmox installation wizard appeared:
 
-![Proxmox Installation Wizard](../assets/screenshots/proxmox-install-wizard.png)
+![Proxmox Installation Wizard](../assets/screenshots/chapter-01-proxmox-installation/proxmox-install-wizard.png)
 
 **Installation Configuration:**
 * **Target Disk:** Internal NVMe Drive (wiped clean)
@@ -84,7 +84,7 @@ ip a
 
 The output revealed the issue:
 
-![Network Interface Status Mismatch](../assets/screenshots/network-nic-status-mismatch.png)
+![Network Interface Status Mismatch](../assets/screenshots/chapter-01-proxmox-installation/network-nic-status-mismatch.png)
 
 **The Problem:** 
 - The configuration file specified `nic0` (onboard ethernet) as the bridge interface
@@ -95,7 +95,7 @@ The output revealed the issue:
 
 **The Solution:** I physically moved the ethernet cable from the docking station to the onboard ethernet port on the motherboard.
 
-![Hardware Ethernet Port Switch](../assets/screenshots/hardware-ethernet-port-switch.png)
+![Hardware Ethernet Port Switch](../assets/screenshots/chapter-01-proxmox-installation/hardware-ethernet-port-switch.png)
 
 After reconnecting the cable to the correct port, `nic0` came up successfully!
 
@@ -107,7 +107,7 @@ Even with the correct interface up, I still couldn't reach the web UI from my la
 ipconfig
 ```
 
-![Windows ipconfig Output](../assets/screenshots/windows-ipconfig.png)
+![Windows ipconfig Output](../assets/screenshots/chapter-01-proxmox-installation/windows-ipconfig.png)
 
 **The Problem:** My laptop was on the `10.100.102.x` subnet (home Wi-Fi), but the Proxmox server was configured with `192.168.100.200` — completely different subnets! They couldn't communicate.
 
@@ -117,7 +117,7 @@ ipconfig
 nano /etc/network/interfaces
 ```
 
-![Editing Linux Network Interfaces](../assets/screenshots/linux-network-interfaces-edit.png)
+![Editing Linux Network Interfaces](../assets/screenshots/chapter-01-proxmox-installation/linux-network-interfaces-edit.png)
 
 **Key Changes Made:**
 - **Old Address:** `192.168.100.200/24`
@@ -146,7 +146,7 @@ This reloaded the network configuration without requiring a full reboot. I verif
 ip a
 ```
 
-![Network IP Address Output](../assets/screenshots/network-ip-a-output.png)
+![Network IP Address Output](../assets/screenshots/chapter-01-proxmox-installation/network-ip-a-output.png)
 
 Success! The server now had the correct IP address on the right subnet.
 
@@ -177,7 +177,7 @@ nameserver 8.8.8.8
 
 Now domain name resolution worked! The web interface was fully accessible:
 
-![Proxmox Web UI Dashboard](../assets/screenshots/proxmox-web-ui-dashboard.png)
+![Proxmox Web UI Dashboard](../assets/screenshots/chapter-01-proxmox-installation/proxmox-web-ui-dashboard.png)
 
 **Security Note:** The browser showed a "Your connection is not private" warning. This is expected because Proxmox uses a self-signed SSL certificate by default. I clicked "Advanced" → "Proceed" to access the interface.
 
