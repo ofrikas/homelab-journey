@@ -31,7 +31,7 @@ This script creates a new LXC container optimized for Docker workloads. During t
 
 | Prompt | My Choice | Reasoning |
 |--------|-----------|-----------|
-| Install Portainer? | Yes | Web UI for Docker management — useful for learning, can explore later |
+| Install Portainer? | No |It'w Web UI for Docker management — proxmox is doing it for us |
 | Install Portainer Agent? | No | I'll connect directly via Proxmox, no need for remote management |
 | Expose Docker TCP socket? | No | Security risk — I don't need external Docker API access |
 
