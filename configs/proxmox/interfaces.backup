@@ -1,0 +1,20 @@
+# Proxmox Network Interfaces Configuration
+# Backup from Chapter 1: After fixing the subnet mismatch
+# Location: /etc/network/interfaces
+
+auto lo
+iface lo inet loopback
+
+iface eno1 inet manual
+
+auto vmbr0
+iface vmbr0 inet static
+        address 10.100.102.200/24
+        gateway 10.100.102.1
+        bridge-ports eno1
+        bridge-stp off
+        bridge-fd 0
+
+# DNS Configuration
+# /etc/resolv.conf
+nameserver 8.8.8.8

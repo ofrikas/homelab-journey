@@ -331,14 +331,14 @@ git push -u origin main --force  # Override remote README
 
 With Docker and n8n operational, the next chapter will cover:
 
-- [ ] Network segmentation and firewall rules
-- [ ] VLANs for container isolation
-- [ ] Reverse proxy with SSL/TLS
-- [ ] Exposing n8n securely to the internet
+- [x] Domain registration and DNS setup
+- [x] Cloudflare Tunnel for secure exposure
+- [x] Exposing n8n securely to the internet
+- [ ] Security hardening and MFA
 
-**Continue to:** [Chapter 3: Networking and Firewall Basics](03-networking-and-firewall-basics.md)
+**Continue to:** [Chapter 3: Domain, Cloudflare, and Exposing n8n](03-networking-and-firewall-basics.md)
 
 ---
 
-**Total Time:** ~5 hours (including troubleshooting)  
+**Total Time:** ~3 hours (including troubleshooting)  
 **Difficulty:** ⭐⭐⭐☆☆ (Moderate — Docker knowledge helpful)

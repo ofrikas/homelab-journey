@@ -1,0 +1,15 @@
+# Cloudflare Tunnel Docker Compose
+# Run this alongside your n8n stack to expose services securely
+
+services:
+  cloudflared:
+    container_name: cloudflared
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+    networks:
+      - n8n_default
+
+networks:
+  n8n_default:
+    external: true

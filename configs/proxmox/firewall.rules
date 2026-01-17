@@ -1,0 +1,18 @@
+# Proxmox Firewall Rules
+# Currently using Cloudflare Tunnel - no direct port exposure needed
+
+# Note: With Cloudflare Tunnel, we don't need to open any inbound ports!
+# The tunnel creates an outbound connection to Cloudflare,
+# and all traffic flows through that encrypted tunnel.
+
+# Future firewall rules to consider:
+# - Rate limiting for SSH (port 22)
+# - Fail2ban integration
+# - Block all inbound except from local network
+# - Allow only Cloudflare IPs if using direct proxy mode
+
+# Example rules (not currently active):
+# IN ACCEPT -source 10.100.102.0/24 -p tcp -dport 8006
+# IN DROP -p tcp -dport 8006
+# IN ACCEPT -source 10.100.102.0/24 -p tcp -dport 22
+# IN DROP -p tcp -dport 22

@@ -91,6 +91,23 @@ Quick reference for Docker and Docker Compose commands used in this homelab proj
 | `hostname -I` | Show only IP addresses |
 | `curl -I http://127.0.0.1:5678/` | Check HTTP response headers |
 | `curl -sS -o /dev/null -w "%{http_code}\n" <url>` | Get only HTTP status code |
+| `docker network ls` | List all Docker networks |
+| `docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}"` | List containers with clean formatting |
+
+---
+
+## 🚇 Cloudflare Tunnel Commands
+
+| Command | Description |
+|---------|-------------|
+| `docker run -d --name cloudflared --restart unless-stopped --network <network> cloudflare/cloudflared:latest tunnel --no-autoupdate run --token <token>` | Run Cloudflare tunnel container |
+| `docker logs cloudflared` | Check tunnel connection status |
+| `docker restart cloudflared` | Restart tunnel after config changes |
+
+**Tunnel flags explained:**
+- `--network n8n_default` — Join same network as services to expose
+- `--restart unless-stopped` — Auto-restart on crash/reboot
+- `--no-autoupdate` — Disable auto-updates (manual control)
 
 ---
 
@@ -149,3 +166,7 @@ Quick reference for Docker and Docker Compose commands used in this homelab proj
 4. **SSH keys:** The public key (`.pub`) goes to GitHub. Never share the private key.
 
 5. **Environment variables:** Avoid special characters (`$`, `!`, `` ` ``) in passwords — they cause shell escaping issues.
+
+6. **Docker networks:** Containers on different networks can't communicate. Use `--network` flag to join existing networks.
+
+7. **Cloudflare tokens:** Never commit tunnel tokens to Git. Use environment variables or `.env` files (in `.gitignore`).
